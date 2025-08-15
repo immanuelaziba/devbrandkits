@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Brand Kits - Immanuel Aziba</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --oyster-white: #EAE8E2;
+            --anthracite-grey: #303438;
+            --oxblood-red: #A12121;
+            --soft-mint: #B5D3C5;
+            --deep-gold: #C6A357;
+            --ink-black: #0C0C0C;
+            --electric-lime: #CCFF00;
+            --shocking-pink: #FF007F;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--oyster-white);
+            color: var(--anthracite-grey);
+            line-height: 1.2;
+        }
+        
+        .mono-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .serif-font {
+            font-family: 'Fraunces', serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--oxblood-red), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .brutal-card {
+            background: white;
+            border: 4px solid var(--ink-black);
+            box-shadow: 8px 8px 0 var(--ink-black);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .brutal-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--ink-black);
+        }
+        
+        .brutal-card.white-bg {
+            background: white;
+            color: var(--ink-black);
+        }
+        
+        .brutal-button {
+            background: var(--electric-lime);
+            border: 4px solid var(--ink-black);
+            color: var(--ink-black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.15s ease;
+            box-shadow: 4px 4px 0 var(--ink-black);
+        }
+        
+        .brutal-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--ink-black);
+        }
+        
+        .brutal-button.primary {
+            background: var(--oxblood-red);
+            color: white;
+        }
+        
+        .brutal-button.secondary {
+            background: var(--deep-gold);
+            color: var(--ink-black);
+        }
+        
+        .brutal-button.accent {
+            background: var(--shocking-pink);
+            color: white;
+        }
+        
+        .type-massive {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 700;
+            line-height: 0.85;
+            letter-spacing: -0.02em;
+        }
+        
+        .type-headline {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 0.9;
+            letter-spacing: -0.01em;
+        }
+        
+        .type-subhead {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+        }
+        
+        .type-body-large {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            line-height: 1.4;
+        }
+        
+        .type-mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .overlay-text {
+            position: absolute;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(12, 12, 12, 0.03);
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .brutal-nav {
+            background: var(--electric-lime);
+            border: 4px solid var(--ink-black);
+            box-shadow: 0 4px 0 var(--ink-black);
+        }
+        
+        .price-tag {
+            background: var(--shocking-pink);
+            color: white;
+            border: 3px solid var(--ink-black);
+            transform: rotate(-2deg);
+            font-weight: 700;
+            box-shadow: 3px 3px 0 var(--ink-black);
+        }
+        
+        .tier-popular {
+            background: var(--electric-lime);
+            border: 6px solid var(--ink-black);
+            position: relative;
+        }
+        
+        .tier-popular::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--shocking-pink);
+            color: white;
+            padding: 8px 16px;
+            border: 3px solid var(--ink-black);
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transform: rotate(2deg);
+        }
+        
+        .gallery-brutal {
+            background: white;
+            border: 4px solid var(--ink-black);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-brutal:hover {
+            transform: translate(-3px, -3px) rotate(1deg);
+            box-shadow: 8px 8px 0 var(--ink-black);
+        }
+        
+        .badge-brutal {
+            border: 2px solid var(--ink-black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+        }
+        
+        .section-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-overlay::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(6rem, 20vw, 16rem);
+            font-weight: 900;
+            color: rgba(12, 12, 12, 0.02);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .streak-brutal {
+            background: var(--ink-black);
+            height: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .streak-brutal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 78%;
+            background: linear-gradient(90deg, var(--electric-lime), var(--deep-gold));
+            animation: brutal-fill 2s ease-out;
+        }
+        
+        @keyframes brutal-fill {
+            0% { width: 0; }
+            100% { width: 78%; }
+        }
+        
+        @keyframes bounce-in {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) rotate(-2deg) scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-10px) rotate(1deg) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+        }
+        
+        .animate-bounce-in {
+            animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--oxblood-red);
+            color: white;
+            font-size: 10px;
+            padding: 4px 8px;
+            border: 2px solid var(--ink-black);
+            transform: rotate(12deg);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .text-outline {
+            -webkit-text-stroke: 2px var(--ink-black);
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        
+        .text-outline-white {
+            -webkit-text-stroke: 2px white;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        
+        .grid-brutal {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        @media (max-width: 768px) {
+            .brutal-card {
+                border-width: 3px;
+                box-shadow: 4px 4px 0 var(--ink-black);
+            }
+            
+            .brutal-button {
+                border-width: 3px;
+                box-shadow: 3px 3px 0 var(--ink-black);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 right-6 z-50 brutal-nav px-6 py-3">
+        <div class="flex items-center space-x-4">
+            <span class="mono-font font-bold text-sm">&lt;DEV × BRAND&gt;</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 section-overlay" data-text="BUILD">
+        <div class="max-w-7xl mx-auto text-center content-layer">
+            <div class="mb-8">
+                <span class="mono-font text-sm font-bold bg-white border-2 border-black px-4 py-2">
+                    STATUS: BUILDING DAILY
+                </span>
+            </div>
+            
+            <h1 class="type-massive mb-6">
+                <span class="block">IMMANUEL</span>
+                <span class="block gradient-text">AZIBA</span>
+            </h1>
+            
+            <div class="type-subhead serif-font mb-8 max-w-4xl mx-auto">
+                <span class="mono-font text-lg font-bold block mb-4">
+                    DEV × BRAND × STRATEGY
+                </span>
+                <p class="text-2xl leading-tight">
+                    Transforming confused creators into 
+                    <span class="bg-yellow-300 px-2">consistent</span> brands through 
+                    <span class="bg-pink-300 px-2">systematic</span> portfolio evolution
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                <button class="brutal-button primary px-8 py-4 type-body-large">
+                    <i class="fas fa-bolt mr-2"></i>
+                    BROWSE KITS
+                </button>
+                <button class="brutal-button secondary px-8 py-4 type-body-large">
+                    <i class="fas fa-compass mr-2"></i>
+                    STRATEGY SESSION
+                </button>
+            </div>
+            
+            <!-- Streak Display -->
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center justify-between mb-2 mono-font text-sm font-bold">
+                    <span>🧱 BUILDING STREAK</span>
+                    <span>47 DAYS</span>
+                </div>
+                <div class="streak-brutal border-2 border-black"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Tiers Section -->
+    <section class="py-24 px-6 section-overlay" data-text="TIERS">
+        <div class="max-w-7xl mx-auto content-layer">
+            <div class="text-center mb-20">
+                <h2 class="type-headline mb-6">
+                    <span class="block mono-font text-lg font-bold mb-4">PORTFOLIO EVOLUTION SYSTEM</span>
+                    THREE TIERS TO
+                    <span class="text-outline">PROFESSIONAL</span>
+                </h2>
+                <p class="type-body-large max-w-3xl mx-auto">
+                    Progressive HTML/CSS/JS portfolio systems designed for developers 
+                    who want to start small and scale systematically
+                </p>
+            </div>
+            
+            <div class="grid-brutal">
+                <!-- Tier 1 -->
+                <div class="brutal-card p-8">
+                    <div class="badge-brutal bg-green-300 px-4 py-2 inline-block mb-6">
+                        TIER 1: STARTER
+                    </div>
+                    
+                    <h3 class="type-subhead mb-4">HTML + CSS PRESENCE</h3>
+                    <div class="price-tag text-3xl px-4 py-2 inline-block mb-6">₦5,000</div>
+                    
+                    <div class="space-y-4 mb-8 mono-font text-sm">
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-green-300 px-2 py-1 font-bold">✓</span>
+                            <span>Clean 1-page resume layout</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-green-300 px-2 py-1 font-bold">✓</span>
+                            <span>Semantic HTML5 structure</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-green-300 px-2 py-1 font-bold">✓</span>
+                            <span>Mobile-responsive CSS</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-green-300 px-2 py-1 font-bold">✓</span>
+                            <span>Deployment ready</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-yellow-300 px-2 py-1 font-bold">⚡</span>
+                            <span>2-day delivery</span>
+                        </div>
+                    </div>
+                    
+                    <button class="brutal-button w-full py-4 mb-4">
+                        GET ONLINE FAST
+                    </button>
+                    
+                    <p class="mono-font text-xs text-center">
+                        Perfect for: Coding bootcamp students
+                    </p>
+                </div>
+                
+                <!-- Tier 2 - Popular -->
+                <div class="brutal-card tier-popular p-8">
+                    <div class="badge-brutal bg-blue-300 px-4 py-2 inline-block mb-6 mt-6">
+                        TIER 2: STRUCTURED
+                    </div>
+                    
+                    <h3 class="type-subhead mb-4">INTERACTIVE PORTFOLIO</h3>
+                    <div class="price-tag text-3xl px-4 py-2 inline-block mb-6">₦10,000</div>
+                    
+                    <div class="space-y-4 mb-8 mono-font text-sm">
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-blue-300 px-2 py-1 font-bold">✓</span>
+                            <span>Multi-section scrolling layout</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-blue-300 px-2 py-1 font-bold">✓</span>
+                            <span>JavaScript interactions</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-blue-300 px-2 py-1 font-bold">✓</span>
+                            <span>Brand color system</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-blue-300 px-2 py-1 font-bold">✓</span>
+                            <span>Contact form integration</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-yellow-300 px-2 py-1 font-bold">⚡</span>
+                            <span>Mobile navigation</span>
+                        </div>
+                    </div>
+                    
+                    <button class="brutal-button accent w-full py-4 mb-4">
+                        BEST VALUE PICK
+                    </button>
+                    
+                    <p class="mono-font text-xs text-center">
+                        Perfect for: Job seekers, early professionals
+                    </p>
+                </div>
+                
+                <!-- Tier 3 -->
+                <div class="brutal-card p-8">
+                    <div class="badge-brutal bg-purple-300 px-4 py-2 inline-block mb-6">
+                        TIER 3: POLISHED
+                    </div>
+                    
+                    <h3 class="type-subhead mb-4">PREMIUM EXPERIENCE</h3>
+                    <div class="price-tag text-3xl px-4 py-2 inline-block mb-6">₦25,000</div>
+                    
+                    <div class="space-y-4 mb-8 mono-font text-sm">
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-purple-300 px-2 py-1 font-bold">✓</span>
+                            <span>Advanced scroll animations</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-purple-300 px-2 py-1 font-bold">✓</span>
+                            <span>Light/dark mode toggle</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-purple-300 px-2 py-1 font-bold">✓</span>
+                            <span>Resume PDF download</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-purple-300 px-2 py-1 font-bold">✓</span>
+                            <span>Project modal system</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="bg-yellow-300 px-2 py-1 font-bold">⚡</span>
+                            <span>SEO & domain setup</span>
+                        </div>
+                    </div>
+                    
+                    <button class="brutal-button primary w-full py-4 mb-4">
+                        GO PREMIUM
+                    </button>
+                    
+                    <p class="mono-font text-xs text-center">
+                        Perfect for: Freelancers, power users
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Upgrade Path -->
+            <div class="mt-20 text-center">
+                <h3 class="type-subhead mb-12 mono-font">UPGRADE PATHS</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="brutal-card p-6 text-center">
+                        <h4 class="font-bold text-lg mb-2 mono-font">PACK A</h4>
+                        <p class="text-2xl font-bold mb-2">₦5,000</p>
+                        <p class="text-sm mb-4">Tier 1 → Tier 2</p>
+                        <button class="brutal-button secondary px-6 py-2 text-sm">
+                            UPGRADE
+                        </button>
+                    </div>
+                    
+                    <div class="brutal-card p-6 text-center">
+                        <h4 class="font-bold text-lg mb-2 mono-font">PACK B</h4>
+                        <p class="text-2xl font-bold mb-2">₦12,500</p>
+                        <p class="text-sm mb-4">Tier 2 → Tier 3</p>
+                        <button class="brutal-button secondary px-6 py-2 text-sm">
+                            LEVEL UP
+                        </button>
+                    </div>
+                    
+                    <div class="brutal-card p-6 text-center">
+                        <h4 class="font-bold text-lg mb-2 mono-font">PACK C</h4>
+                        <p class="text-2xl font-bold mb-2">₦17,500</p>
+                        <p class="text-sm mb-4">Tier 1 → Tier 3</p>
+                        <button class="brutal-button accent px-6 py-2 text-sm">
+                            JUMP AHEAD
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-24 px-6 bg-black text-white section-overlay" data-text="NEW">
+        <div class="max-w-7xl mx-auto content-layer">
+            <div class="text-center mb-20">
+                <h2 class="type-headline mb-6">
+                    <span class="block mono-font text-lg font-bold mb-4 text-lime-300">FRESH RELEASES</span>
+                    LATEST PRODUCTS
+                    <span class="text-outline-white">& UPDATES</span>
+                </h2>
+                <p class="type-body-large max-w-3xl mx-auto text-gray-300">
+                    New templates, tools, and strategy resources added weekly
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="gallery-brutal p-6 bg-white text-black" onclick="openProduct('brand-strategy-audit')">
+                    <div class="h-32 bg-red-500 flex items-center justify-center mb-6 border-2 border-black">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <div class="badge-brutal bg-red-300 px-3 py-1 text-xs mb-4 inline-block">
+                        NEW RELEASE
+                    </div>
+                    <h3 class="type-subhead text-lg mb-2">BRAND STRATEGY AUDIT</h3>
+                    <p class="text-sm mb-4 mono-font">Complete brand alignment analysis</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">₦15,000</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="gallery-brutal p-6 bg-white text-black" onclick="openProduct('react-template')">
+                    <div class="h-32 bg-blue-500 flex items-center justify-center mb-6 border-2 border-black">
+                        <i class="fab fa-react text-white text-3xl"></i>
+                    </div>
+                    <div class="badge-brutal bg-blue-300 px-3 py-1 text-xs mb-4 inline-block">
+                        TEMPLATE
+                    </div>
+                    <h3 class="type-subhead text-lg mb-2">REACT DEV PORTFOLIO</h3>
+                    <p class="text-sm mb-4 mono-font">Modern React + Tailwind template</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">₦20,000</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="gallery-brutal p-6 bg-white text-black" onclick="openProduct('notion-workspace')">
+                    <div class="h-32 bg-purple-500 flex items-center justify-center mb-6 border-2 border-black">
+                        <i class="fas fa-clipboard-list text-white text-3xl"></i>
+                    </div>
+                    <div class="badge-brutal bg-purple-300 px-3 py-1 text-xs mb-4 inline-block">
+                        WORKSPACE
+                    </div>
+                    <h3 class="type-subhead text-lg mb-2">CREATOR NOTION HUB</h3>
+                    <p class="text-sm mb-4 mono-font">Complete productivity system</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">₦8,000</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="gallery-brutal p-6 bg-white text-black" onclick="openProduct('landing-kit')">
+                    <div class="h-32 bg-green-500 flex items-center justify-center mb-6 border-2 border-black">
+                        <i class="fas fa-rocket text-white text-3xl"></i>
+                    </div>
+                    <div class="badge-brutal bg-green-300 px-3 py-1 text-xs mb-4 inline-block">
+                        CONVERSION
+                    </div>
+                    <h3 class="type-subhead text-lg mb-2">LANDING PAGE KIT</h3>
+                    <p class="text-sm mb-4 mono-font">High-convert templates</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">₦12,000</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="gallery-brutal p-6 bg-white text-black" onclick="openProduct('brand-kit')">
+                    <div class="h-32 bg-yellow-500 flex items-center justify-center mb-6 border-2 border-black">
+                        <i class="fas fa-palette text-white text-3xl"></i>
+                    </div>
+                    <div class="badge-brutal bg-yellow-300 px-3 py-1 text-xs mb-4 inline-block">
+                        IDENTITY
+                    </div>
+                    <h3 class="type-subhead text-lg mb-2">BRAND IDENTITY KIT</h3>
+                    <p class="text-sm mb-4 mono-font">Complete visual system</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">₦30,000</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="gallery-brutal p-6 bg-white text-black" onclick="openProduct('strategy-session')">
+                    <div class="h-32 bg-pink-500 flex items-center justify-center mb-6 border-2 border-black">
+                        <i class="fas fa-compass text-white text-3xl"></i>
+                    </div>
+                    <div class="badge-brutal bg-pink-300 px-3 py-1 text-xs mb-4 inline-block">
+                        1-ON-1
+                    </div>
+                    <h3 class="type-subhead text-lg mb-2">STRATEGY SESSION</h3>
+                    <p class="text-sm mb-4 mono-font">Personal brand consultation</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xl">₦25,000</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-6 bg-lime-300 section-overlay" data-text="BUILD">
+        <div class="max-w-4xl mx-auto text-center content-layer">
+            <h2 class="type-headline mb-8">
+                <span class="block mono-font text-lg font-bold mb-4">READY TO BUILD?</span>
+                START YOUR BRAND
+                <span class="text-outline">EVOLUTION</span>
+            </h2>
+            <p class="type-body-large mb-12 max-w-2xl mx-auto">
+                Join 200+ developers who've transformed their online presence 
+                through systematic portfolio evolution
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                <button class="brutal-button primary px-8 py-4 type-body-large">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    BROWSE ALL KITS
+                </button>
+                <button class="brutal-button px-8 py-4 type-body-large">
+                    <i class="fas fa-calendar mr-2"></i>
+                    BOOK STRATEGY CALL
+                </button>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8 mono-font text-sm font-bold">
+                <div class="flex items-center space-x-2 bg-white px-4 py-2 border-2 border-black">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>SECURE PAYMENT</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-white px-4 py-2 border-2 border-black">
+                    <i class="fas fa-clock"></i>
+                    <span>FAST DELIVERY</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-white px-4 py-2 border-2 border-black">
+                    <i class="fas fa-headset"></i>
+                    <span>FULL SUPPORT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="type-subhead text-xl mb-6">
+                        <span class="mono-font">&lt;IMMANUEL/&gt;</span>
+                    </h3>
+                    <p class="text-gray-400 mono-font text-sm leading-relaxed">
+                        Dev × Brand × Strategy<br>
+                        Building systems that scale<br>
+                        From confused to consistent
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 mono-font">PRODUCTS</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 mono-font">
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Portfolio Kits</a></li>
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Brand Strategy</a></li>
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Notion Templates</a></li>
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Landing Pages</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 mono-font">RESOURCES</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 mono-font">
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Brand Audit Tool</a></li>
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Dev Career Guide</a></li>
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Strategy Sessions</a></li>
+                        <li><a href="#" class="hover:text-lime-300 transition-colors">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 mono-font">CONNECT</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="brutal-card white-bg p-3 hover:bg-lime-300 hover:text-black transition-all duration-200">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="brutal-card white-bg p-3 hover:bg-lime-300 hover:text-black transition-all duration-200">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="#" class="brutal-card white-bg p-3 hover:bg-lime-300 hover:text-black transition-all duration-200">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" class="brutal-card white-bg p-3 hover:bg-lime-300 hover:text-black transition-all duration-200">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mono-font text-sm">
+                        Building daily.<br>
+                        Follow the journey.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t-4 border-white pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mono-font text-sm mb-4 md:mb-0">
+                    © 2024 IMMANUEL AZIBA. FROM CONFUSED TO CONSISTENT.
+                </p>
+                <div class="flex items-center space-x-6 text-sm text-gray-400 mono-font">
+                    <a href="#" class="hover:text-lime-300 transition-colors">PRIVACY</a>
+                    <a href="#" class="hover:text-lime-300 transition-colors">TERMS</a>
+                    <a href="#" class="hover:text-lime-300 transition-colors">REFUNDS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product click handlers for Paystack integration
+        function openProduct(productId) {
+            const products = {
+                'brand-strategy-audit': 'https://paystack.com/pay/brand-strategy-audit',
+                'react-template': 'https://paystack.com/pay/react-dev-portfolio',
+                'notion-workspace': 'https://paystack.com/pay/notion-workspace',
+                'landing-kit': 'https://paystack.com/pay/landing-page-kit',
+                'brand-kit': 'https://paystack.com/pay/brand-identity-kit',
+                'strategy-session': 'https://paystack.com/pay/strategy-session'
+            };
+            
+            // Enhanced click feedback with brutal styling
+            const clickedElement = event.currentTarget;
+            clickedElement.style.transform = 'translate(-6px, -6px) rotate(2deg)';
+            clickedElement.style.boxShadow = '12px 12px 0 var(--ink-black)';
+            
+            setTimeout(() => {
+                clickedElement.style.transform = '';
+                clickedElement.style.boxShadow = '';
+            }, 200);
+            
+            // For demo purposes - replace with actual Paystack URLs
+            console.log(`Opening product: ${productId}`);
+            alert(`Product: ${productId}\nRedirecting to: ${products[productId]}`);
+            
+            // Uncomment for actual implementation:
+            // window.open(products[productId], '_blank');
+        }
+
+        // Enhanced button interactions with brutal styling
+        document.querySelectorAll('.brutal-button').forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'translate(2px, 2px)';
+                this.style.boxShadow = '2px 2px 0 var(--ink-black)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'translate(-2px, -2px)';
+                this.style.boxShadow = '6px 6px 0 var(--ink-black)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '4px 4px 0 var(--ink-black)';
+            });
+        });
+
+        // Typing effect for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Enhanced scroll effects with brutal aesthetics
+        let ticking = false;
+        
+        function updateScrollEffects() {
+            const scrolled = window.pageYOffset;
+            const nav = document.querySelector('.brutal-nav');
+            
+            if (scrolled > 100) {
+                nav.style.transform = 'scale(0.9) rotate(-1deg)';
+                nav.style.background = 'var(--shocking-pink)';
+            } else {
+                nav.style.transform = 'scale(1) rotate(0deg)';
+                nav.style.background = 'var(--electric-lime)';
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+
+        // Brutal card interactions
+        document.querySelectorAll('.brutal-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('white-bg')) {
+                    this.style.transform = 'translate(-6px, -6px) rotate(1deg)';
+                    this.style.boxShadow = '12px 12px 0 var(--ink-black)';
+                } else {
+                    this.style.transform = 'translate(-3px, -3px)';
+                    this.style.boxShadow = '6px 6px 0 var(--ink-black)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                if (!this.classList.contains('white-bg')) {
+                    this.style.boxShadow = '8px 8px 0 var(--ink-black)';
+                } else {
+                    this.style.boxShadow = '4px 4px 0 var(--ink-black)';
+                }
+            });
+        });
+
+        // Gallery brutal interactions
+        document.querySelectorAll('.gallery-brutal').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translate(-4px, -4px) rotate(2deg)';
+                this.style.boxShadow = '10px 10px 0 var(--ink-black)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Dynamic pricing updates
+        function updatePricing() {
+            const currentTime = new Date();
+            const isWeekend = currentTime.getDay() === 0 || currentTime.getDay() === 6;
+            
+            if (isWeekend) {
+                document.querySelectorAll('.price-tag').forEach(tag => {
+                    if (!tag.querySelector('.discount-badge')) {
+                        const discount = document.createElement('span');
+                        discount.className = 'discount-badge absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 border-2 border-black transform rotate-12';
+                        discount.textContent = '10% OFF';
+                        tag.style.position = 'relative';
+                        tag.appendChild(discount);
+                    }
+                });
+            }
+        }
+
+        // Intersection Observer for brutal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const brutalistObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) rotate(0deg)';
+                    
+                    // Add staggered animation for cards
+                    if (entry.target.classList.contains('brutal-card')) {
+                        entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                        entry.target.classList.add('animate-bounce-in');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePricing();
+            
+            // Set up scroll animations
+            document.querySelectorAll('.brutal-card, .gallery-brutal').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px) rotate(-2deg)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                brutalistObserver.observe(el);
+            });
+            
+        // Add some brutal flavor to existing elements
+        const headlines = document.querySelectorAll('.type-headline');
+        headlines.forEach(headline => {
+            headline.style.transition = 'transform 0.3s ease';
+            headline.addEventListener('mouseenter', function() {
+                this.style.transform = 'skew(-2deg, 1deg)';
+            });
+            
+            headline.addEventListener('mouseleave', function() {
+                this.style.transform = 'skew(0deg, 0deg)';
+            });
+        });
+        });
+
+        // Random glitch effect for text elements
+        function glitchText(element) {
+            const originalText = element.dataset.originalText || element.textContent;
+            const glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            let iterations = 0;
+            
+            const interval = setInterval(() => {
+                element.textContent = originalText
+                    .split('')
+                    .map((char, index) => {
+                        if (index < iterations) {
+                            return originalText[index];
+                        }
+                        return glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                    })
+                    .join('');
+                
+                if (iterations >= originalText.length) {
+                    clearInterval(interval);
+                    element.textContent = originalText;
+                }
+                
+                iterations += 1/3;
+            }, 30);
+        }
+
+        // Apply glitch effect to certain elements on hover
+        document.querySelectorAll('.mono-font').forEach(element => {
+            if (element.textContent.includes('DEV') || element.textContent.includes('BRAND')) {
+                element.addEventListener('mouseenter', function() {
+                    if (!this.dataset.originalText) {
+                        this.dataset.originalText = this.textContent;
+                    }
+                    glitchText(element);
+                });
+            }
+        });
+
+        // Add brutal loading states
+        function addBrutalLoading(button) {
+            const originalText = button.innerHTML;
+            button.disabled = true;
+            button.style.background = 'var(--ink-black)';
+            button.style.color = 'var(--electric-lime)';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>PROCESSING...';
+            
+            setTimeout(() => {
+                button.disabled = false;
+                button.innerHTML = originalText;
+                button.style.background = '';
+                button.style.color = '';
+            }, 2000);
+        }
+
+        // Add to CTA buttons
+        document.querySelectorAll('.brutal-button').forEach(button => {
+            if (button.textContent.includes('BROWSE') || button.textContent.includes('BOOK')) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    addBrutalLoading(this);
+                });
+            }
+        });
+
+        // Console easter egg
+        console.log(`
+        ██████╗ ███████╗██╗   ██╗    ██████╗ ██████╗  █████╗ ███╗   ██╗██████╗ 
+        ██╔══██╗██╔════╝██║   ██║    ██╔══██╗██╔══██╗██╔══██╗████╗  ██║██╔══██╗
+        ██║  ██║█████╗  ██║   ██║    ██████╔╝██████╔╝███████║██╔██╗ ██║██║  ██║
+        ██║  ██║██╔══╝  ╚██╗ ██╔╝    ██╔══██╗██╔══██╗██╔══██║██║╚██╗██║██║  ██║
+        ██████╔╝███████╗ ╚████╔╝     ██████╔╝██║  ██║██║  ██║██║ ╚████║██████╔╝
+        ╚═════╝ ╚══════╝  ╚═══╝      ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ 
+        
+        Building systems that scale. From confused to consistent.
+        `);
+    </script>
+</body>
+</html>
